@@ -1,15 +1,13 @@
 call plug#begin()
-    " easier comments with gcc
-    Plug 'tpope/vim-commentary'
-    " Fancy info line:PL
-    Plug 'vim-airline/vim-airline'
-    " Fuzzy finder for quick file finding
-    Plug '/usr/local/opt/fzf'
-    Plug 'junegunn/fzf.vim'
-    Plug 'tpope/vim-surround'
-    Plug 'junegunn/seoul256.vim'
-    " Plug 'neovim/nvim-lsp'
-    Plug 'neoclide/coc.nvim', {'branch': 'release'}
+     " easier comments with gcc
+     Plug 'tpope/vim-commentary'
+     " Fancy info line:PL
+     Plug 'vim-airline/vim-airline'
+     Plug '/usr/local/opt/fzf'
+     Plug 'junegunn/fzf.vim'
+     Plug 'tpope/vim-surround'
+     Plug 'junegunn/seoul256.vim'
+     Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
 
 ""
