@@ -155,22 +155,49 @@ bindkey '^e' edit-command-line
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias python=/usr/bin/python3
+# alias python=/usr/bin/python3
 # exporting zsh plugins isntalled with homebrew
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-source /usr/local/share/zsh-history-substring-search/zsh-history-substring-search.zsh
 
 # adding shorcuts
 bindkey '^h' autosuggest-accept
 bindkey '^l' autosuggest-execute
-bindkey '^j' history-substring-search-up
-bindkey '^k' history-substring-search-down
-bindkey -M vicmd '^j' history-substring-search-up
-bindkey -M vicmd '^k' history-substring-search-down
 
 bindkey -M viins 'jj' vi-cmd-mode
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 bindkey "ç" fzf-cd-widget
 alias uizardvi='uizard core pipeline visual render-platform-request'
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/arturo/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/arturo/Downloads/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/arturo/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/arturo/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
+# Allows setting hooks
+autoload -U add-zsh-hook
+# Looks for a file in all the parent directories
+function find-up () {
+    path=$(pwd)
+    while [[ "$path" != "$2" && ! -e "$path/$1" ]]; do
+        path=${path%/*}
+    done
+    echo "$path"
+}
+auto_use_virtual_environment() {
+    # It will look for the venv directory in all parent directories
+    # if any is found then it will be used
+    venv_folder=$(find-up venv)
+    if [[ ! -z "${venv_folder// }" ]]; then
+        echo "Found $python_version_folder/venv virtualenv"
+        echo "Activating virtualenv..."
+        source "$venv_folder/venv/bin/activate"
+    else
+        if which deactivate > /dev/null 2>&1; then
+            echo "Walking out of virtualevn. Deactivating..."
+            deactivate
+        fi
+    fi
+}
+add-zsh-hook chpwd auto_use_virtual_environment

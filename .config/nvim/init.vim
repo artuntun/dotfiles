@@ -1,19 +1,36 @@
 call plug#begin()
-     " easier comments with gcc
-     Plug 'tpope/vim-commentary'
-     " Fancy info line:PL
-     Plug 'vim-airline/vim-airline'
-     Plug '/usr/local/opt/fzf'
-     Plug 'junegunn/fzf.vim'
-     Plug 'tpope/vim-surround'
-     Plug 'junegunn/seoul256.vim'
-     Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'tpope/vim-commentary'      " easier comments with gcc
+Plug 'vim-airline/vim-airline'
+Plug '/usr/local/opt/fzf'
+Plug 'junegunn/fzf.vim'
+Plug 'morhetz/gruvbox'
+Plug 'tpope/vim-surround'
+Plug 'junegunn/seoul256.vim'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'skbolton/embark'
+Plug 'sonph/onehalf', {'rtp': 'vim/'}
+Plug 'tomasiser/vim-code-dark'
+" Plug 'sheerun/vim-polyglot'
+" Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
 call plug#end()
 
-""
-colo seoul256         " Unified color scheme (default: dark)
-set background=dark
-let g:seoul256_background = 234
+" colorscheme embark
+" colo seoul256         " Unified color scheme (default: dark)
+" set background=dark
+" let g:seoul256_background = 234
+syntax on
+set t_Co=256
+" colorscheme onehalfdark
+colorscheme gruvbox
+let g:airline_theme='onehalfdark'
+" lightline
+" let g:lightline.colorscheme='onehalfdark'
+if exists('+termguicolors')
+  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+  set termguicolors
+endif
+highlight LineNr guifg=#050505
 
 " Exiting normal mode with jj
 inoremap jj <Esc>
@@ -34,6 +51,12 @@ inoremap { {}<left>
 inoremap {<CR> {<CR>}<ESC>O
 inoremap {;<CR> {<CR>};<ESC>O
 
+" adds new line from normal mode
+nnoremap ss i<space><esc>
+
+" Ctrl p and Ctrl-n beahave as up and down in ex mode
+cnoremap <C-p> <Up>
+cnoremap <C-n> <Down>
 """""""""""""""""""""""""""""""""""""""""""""""""
 """"""""""""  REGULAR CONFIGS 
 """""""""""""""""""""""""""""""""""""""""""""""""
@@ -48,6 +71,7 @@ set backspace=indent,eol,start " patch to make the backpasce work again
 " set listchars=tab:\|\ ,trail:·,nbsp:_ "Display dots for normal spaces
 " set list
 set cursorline        " cursor line and colum
+" set colorcolumn=90
 
 " FZF.VIM CUSTOMIZATION
 " Customize fzf colors to match your color scheme
