@@ -161,7 +161,6 @@ source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # adding shorcuts
-bindkey '^h' autosuggest-accept
 bindkey '^l' autosuggest-execute
 
 bindkey -M viins 'jj' vi-cmd-mode
@@ -201,3 +200,4 @@ auto_use_virtual_environment() {
     fi
 }
 add-zsh-hook chpwd auto_use_virtual_environment
+alias rsynz="/usr/local/bin/rsync"

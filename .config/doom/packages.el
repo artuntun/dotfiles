@@ -48,3 +48,7 @@
 ;(unpin! pinned-package another-pinned-package)
 ;; ...Or *all* packages (NOT RECOMMENDED; will likely break things)
 ;(unpin! t)
+
+(package! org-fc
+  :recipe (:host github :repo "l3kn/org-fc"))
+(setq org-fc-directories '("~/Dropbox/org/"))
