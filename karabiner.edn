@@ -1,0 +1,4 @@
+{:main [{:des   "ctrl modifiers"
+         :rules [
+                 [:!Topen_bracket :escape]
+                 [:!Th :delete_or_backspace]]}]}
