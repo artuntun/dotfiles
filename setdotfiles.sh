@@ -1,3 +1,4 @@
+# inspired by https://github.com/ajmalsiddiqui/dotfiles/blob/master/bootstrap.exclude.sh
 link () {
   mkdir ~/.config
   for file in $( ls -A ./config | grep -vE '\.exclude*|\.git$|\.gitignore|\.gitmodules|.*.md' ) ; do
