@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =6
+let g:netrw_dirhist_6='/Users/arturo/Projects/artuntun.github.io/blog'
+let g:netrw_dirhist_5='/Users/arturo/uizard/pip-package-alignment'
+let g:netrw_dirhist_4='/Users/arturo/dotfiles/.config/zsh'
+let g:netrw_dirhist_3='/Users/arturo/.doom.d'
+let g:netrw_dirhist_2='/Users/arturo/uizard/pip-package-dom-learning/.git'
+let g:netrw_dirhist_1='/Users/arturo/uizard/pip-package-oak-trees'
+let g:netrw_dirhist_0='/Users/arturo/uizard/pip-package-tree-data-generator/uizard_tree_data_generator'
+let g:netrw_dirhist_9='/Users/arturo/uizard/serverless-alignment-estimation'
+let g:netrw_dirhist_8='/Users/arturo/uizard/pip-package-tree-data-generator/.vim'
+let g:netrw_dirhist_7='/Users/arturo/uizard/pip-package-tree-data-generator/uizard_tree_generator'
